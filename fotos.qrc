@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="prefijoNuevo">
+    <file>insa.png</file>
+    <file>logo.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,58 @@
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QListWidget>
+#include <QMainWindow>
+#include <QBluetoothDeviceDiscovyAgent>
+#include <QBluetoothSocket>
+#include <QListWidget>
+
+#include <QIODevice>
+
+//#include <QSerialPort>
+//#include <QSerialPortInfo>
+//#include <QDebug>
+
+QT_BEGIN_NAMESPACE
+
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
+
+    void  AfficherTours(int nb_tours);
+    void function();
+
+private slots:
+//    void serial_read();
+
+    void on_Connexion_clicked();
+    void DeviceDsicovered(const QBluetoothDeviceInfo &device);
+
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
+
+    void on_on_clicked();
+
+    void on_off_clicked();
+
+private:
+    Ui::MainWindow *ui;
+    QBluetoothDeviceDiscoveyAgent *agent = new QBluetootDeviceDiscoveryAgent;
+    QBluetoothSocket *socket;
+    QString string;
+
+//    QSerialPort *serial;
+//    QString portname;
+//    quint16 vendorId;
+//    quint16 productId; // ESTOS DOS SON PROPIOS DE CADA TARJETA ARDUINO. PARA VERIFICAR LA TARJETA QUE ESTOY UTILIZANDO
+//    bool arduino_available;
+//    void arduino_init();
+};
+#endif // MAINWINDOW_H
